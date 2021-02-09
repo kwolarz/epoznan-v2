@@ -60,3 +60,4 @@ buck-out/
 
 #API
 /src/utils/envs/
+env.json
