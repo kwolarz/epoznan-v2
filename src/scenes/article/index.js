@@ -1,6 +1,6 @@
 import React from 'react';
-import {HelloWorld} from '_atoms';
+import { Text } from 'react-native';
 
-const Article = ({navigation}) => (<HelloWorld name="article" />);
+const Article = ({navigation}) => <Text>Article</Text>;
 
 export default Article;
