@@ -1,23 +1,37 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Header } from '_organisms';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Header, BigArticleSection } from '_organisms';
 import { Colors, Spacing } from '_styles';
+
 
 const Home = ({navigation}) => {
     return (
-        <View style={styles.container}>
-            <Header />
-        </View>
+        <SafeAreaView style={styles.container} edges={['left', 'top', 'right']}>
+            <View style={styles.content}>
+                <Header />
+                <View style={styles.spacer} />
+                <BigArticleSection />
+            </View>
+        </SafeAreaView>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'space-around',
-        paddingHorizontal: Spacing.SCALE_22,
         backgroundColor: Colors.WHITE,
+    },
+    content: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        paddingHorizontal: Spacing.SCALE_22,
+        paddingTop: Spacing.SCALE_32,
+    },
+    spacer: {
+        //flex: 1,
+        paddingVertical: Spacing.SCALE_18,
     },
 });
 

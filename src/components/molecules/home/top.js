@@ -7,6 +7,7 @@ const Top = () => {
         <>
             <View style={styles.container}>
                 <Logo />
+                <View style={styles.spacer}/>
                 <Settings />
             </View>
         </>
@@ -16,8 +17,11 @@ const Top = () => {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        //justifyContent: 'space-between',
     },
+    spacer: {
+        flex: 1,
+    }
 })
 
 export default Top;

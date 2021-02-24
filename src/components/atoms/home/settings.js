@@ -4,7 +4,7 @@ import { Colors, Mixins } from '_styles';
 
 const Settings = () => {
     return (
-        <View style={styles.container}>
+        <View>
             <TouchableOpacity onPress={() => console.log('pressed')} style={styles.button}>
                 <Image source={require('_assets/images/settings.png')} style={styles.icon}/>
             </TouchableOpacity>
@@ -14,11 +14,6 @@ const Settings = () => {
 };
 
 const styles = StyleSheet.create({
-    container: {
-        alignItems: 'flex-end',
-        flex: 1,
-    },
-
     button: {
         borderRadius: Mixins.scaleSize(5),
         backgroundColor: Colors.GRAY_LIGHT,
