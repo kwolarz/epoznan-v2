@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { SectionTitle } from '_atoms';
+import { SectionTitle, ShowAll } from '_atoms';
 import { Spacing } from '_styles';
 
 const SectionTitleContainer = props => {
@@ -8,6 +8,8 @@ const SectionTitleContainer = props => {
         <>
             <View style={styles.container}>
                 <SectionTitle text={props.text} />
+                <View style={styles.spacer} />
+                <ShowAll text={props.title} />
             </View>
         </>
     );
@@ -15,7 +17,14 @@ const SectionTitleContainer = props => {
 
 const styles = StyleSheet.create({
     container: {
-        paddingBottom: Spacing.SCALE_12
+        paddingBottom: Spacing.SCALE_12,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    spacer: {
+        flex: 1,
     }
 })
 

@@ -3,41 +3,23 @@ import { FlatList } from 'react-native';
 import { BigArticle } from '_atoms';
 import { Mixins, Spacing } from '_styles';
 
-const DATA = [
-    {
-        id: 1,
-        image: '_assets/images/test1.jpg',
-        title: 'Wiceminister rozwoju: chcemy zmniejszyć mobilność, dyskutujemy o stokach i hotelach. Nie ma szans na odmrażanie',
-    },
-    {
-        id: 2,
-        image: '_assets/images/test1.jpg',
-        title: 'Second Item',
-    },
-    {
-        id: 3,
-        image: '_assets/images/test1.jpg',
-        title: 'Third Item',
-    },
-];
-
 const width = Mixins.WINDOW_WIDTH;
 const IMAGE_WIDTH = Mixins.scaleSize(300);
 const image_margin = 0;
 const nishhar = width - ((IMAGE_WIDTH + image_margin) * 2 + image_margin * 2);
 const dataNum = [1, 2, 3];
 
-const BigArticleList = () => {
+const BigArticleList = props => {
     return (
         <>
             <FlatList
-                style={{ marginRight: -Spacing.SCALE_22}}
-                data={DATA}
-                key={({id}, index) => index}
+                style={{ marginHorizontal: -Spacing.SCALE_22, paddingLeft: Spacing.SCALE_22}}
+                data={props.data}
+                keyExtractor={({id}, index) => index.toString()}
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 renderItem={ ({item}) => <BigArticle 
-                    image={require('_assets/images/test1.jpg')}
+                    image={item.imgUrl}
                     title={item.title}
                 />}
                 snapToAlignment={"start"}

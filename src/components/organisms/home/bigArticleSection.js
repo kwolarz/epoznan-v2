@@ -6,8 +6,8 @@ const BigArticleSection = props => {
     return (
         <>
             <View>
-                <SectionTitleContainer text={"Top"}/>
-                <BigArticleList />
+                <SectionTitleContainer text={"Top"} title={"Więcej wiadomości"}/>
+                <BigArticleList data={props.data} />
             </View>
         </>
     );

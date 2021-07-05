@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Header, BigArticleSection } from '_organisms';
+import { Header, BigArticleSection, WeatherSection } from '_organisms';
 import { Colors, Spacing } from '_styles';
+import { Paths, Networking } from '_services';
 
 
 const Home = ({navigation}) => {
+    const URL = Paths.API_URL + Paths.HOME;
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        // data = Networking.getData(URL);
+        fetch(URL)
+        .then(response => response.json())
+        .then(json => setData(json))
+        .catch(error => console.error(error))
+        .finally(() => console.log(data));
+    }, []);
+
     return (
         <SafeAreaView style={styles.container} edges={['left', 'top', 'right']}>
             <View style={styles.content}>
                 <Header />
                 <View style={styles.spacer} />
-                <BigArticleSection />
+                <BigArticleSection data={data.middlePosts}/>
+                <WeatherSection />
             </View>
         </SafeAreaView>
     );

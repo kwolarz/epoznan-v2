@@ -6,8 +6,9 @@ const SectionTitle = props => <Text style={styles.title}>{props.text}</Text>;
 
 const styles = StyleSheet.create({
     title: {
-        fontWeight: 'bold',
-        fontSize: Typography.LINE_HEIGHT_24
+        //fontWeight: 'bold',
+        fontSize: Typography.LINE_HEIGHT_24,
+        fontFamily: Typography.FONT_FAMILY_BOLD,
     }
 });
 

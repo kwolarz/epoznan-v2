@@ -5,7 +5,7 @@ import { Typography, Mixins, Spacing } from '_styles';
 const BigArticle = props => {
     return (
         <TouchableOpacity style={styles.image}>
-            <ImageBackground source={props.image} style={styles.image}>
+            <ImageBackground source={{uri: props.image}} style={styles.image}>
                 <View style={styles.titleContainer}>
                     <Text style={styles.title}>{props.title}</Text>
                 </View>
@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     title: {
         backgroundColor: 'transparent',
         fontSize: Typography.LINE_HEIGHT_18,
+        fontFamily: Typography.FONT_FAMILY_REGULAR,
         //fontWeight: 'bold',
         color: 'white',
         //fontStyle: 'italic',
